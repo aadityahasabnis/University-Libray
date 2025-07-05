@@ -1,0 +1,652 @@
+@import "tailwindcss";
+@plugin "tailwindcss-animate";
+@custom-variant dark (&:where(.dark, .dark *));
+@theme {
+  --color-success-100: #49de50;
+  --color-success-200: #42c748;
+  --color-destructive-100: #f75353;
+  --color-destructive-200: #c44141;
+
+  --color-primary-100: #dddfff;
+  --color-primary-200: #cac5fe;
+
+  --color-light-100: #d6e0ff;
+  --color-light-400: #6870a6;
+  --color-light-600: #4f557d;
+  --color-light-700: #424872;
+  --color-light-800: #24273a;
+
+  --color-dark-100: #020408;
+  --color-dark-200: #27282f;
+  --color-dark-300: #242633;
+  --color-dark-600: #161822;
+
+  --color-accent-100: #AB8BFF;
+
+  --font-bebas-neue: "Bebas Neue", sans-serif;
+  --primary: #e7c9a5;
+  --primary-admin: #25388c;
+  --green: #027a48;
+  --green-100: #ecfdf3;
+  --green-400: #4c7b62;
+  --green-500: #2cc171;
+  --green-800: #027a48;
+  --red: #ef3a4b;
+  --red-400: #f46f70;
+  --red-500: #e27233;
+  --red-800: #ef3a4b;
+  --blue-100: #0089f1;
+  --light-100: #d6e0ff;
+  --light-200: #eed1ac;
+  --light-300: #f8f8ff;
+  --light-400: #edf1f1;
+  --light-500: #8d8d8d;
+  --light-600: #f9fafb;
+  --light-700: #e2e8f0;
+  --light-800: #f8fafc;
+  --dark-100: #16191e;
+  --dark-200: #3a354e;
+  --dark-300: #232839;
+  --dark-400: #1e293b;
+  --dark-500: #0f172a;
+  --dark-600: #333c5c;
+  --dark-700: #464f6f;
+  --dark-800: #1e2230;
+  --gray-100: #cbd5e1;
+  /*--bebas-neue*/
+}
+:root {
+  /* Screen sizes */
+  --screens-xs: 480px;
+  --screens-sm: 640px;
+  --screens-md: 768px;
+  --screens-lg: 1024px;
+  --screens-xl: 1280px;
+  --screens-2xl: 1536px;
+
+  --background: 0 0% 100%;
+  --foreground: 222.2 84% 4.9%;
+  --card: 0 0% 100%;
+  --card-foreground: 222.2 84% 4.9%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 222.2 84% 4.9%;
+  --primary: 222.2 47.4% 11.2%;
+  --primary-foreground: 210 40% 98%;
+  --secondary: 210 40% 96.1%;
+  --secondary-foreground: 222.2 47.4% 11.2%;
+  --muted: 210 40% 96.1%;
+  --muted-foreground: 215.4 16.3% 46.9%;
+  --accent: 210 40% 96.1%;
+  --accent-foreground: 222.2 47.4% 11.2%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 214.3 31.8% 91.4%;
+  --input: 214.3 31.8% 91.4%;
+  --ring: 222.2 84% 4.9%;
+  --chart-1: 12 76% 61%;
+  --chart-2: 173 58% 39%;
+  --chart-3: 197 37% 24%;
+  --chart-4: 43 74% 66%;
+  --chart-5: 27 87% 67%;
+  --radius: 0.5rem;
+}
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+  --primary: 210 40% 98%;
+  --primary-foreground: 222.2 47.4% 11.2%;
+  --secondary: 217.2 32.6% 17.5%;
+  --secondary-foreground: 210 40% 98%;
+  --muted: 217.2 32.6% 17.5%;
+  --muted-foreground: 215 20.2% 65.1%;
+  --accent: 217.2 32.6% 17.5%;
+  --accent-foreground: 210 40% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 217.2 32.6% 17.5%;
+  --input: 217.2 32.6% 17.5%;
+  --ring: 212.7 26.8% 83.9%;
+  --chart-1: 220 70% 50%;
+  --chart-2: 160 60% 45%;
+  --chart-3: 30 80% 55%;
+  --chart-4: 280 65% 60%;
+  --chart-5: 340 75% 55%;
+}
+
+:root {
+  /* !* Font Families * !*/
+  --font-ibm-plex-sans: "IBM Plex Sans", sans-serif;
+  --bebas-neue: "Bebas Neue", sans-serif;
+
+  /* Screen sizes */
+  --xs: 480px;
+  --screens-xs: 480px;
+  --screens-sm: 640px;
+  --screens-md: 768px;
+  --screens-lg: 1024px;
+  --screens-xl: 1280px;
+  --screens-2xl: 1536px;
+
+  /* !* Colors - HSL Tokens *! */
+  --background: 0 0% 100%;
+  --foreground: 240 10% 3.9%;
+
+  --card: 0 0% 100%;
+  --card-foreground: 240 10% 3.9%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 240 10% 3.9%;
+  --secondary: 240 4.8% 95.9%;
+  --secondary-foreground: 240 5.9% 10%;
+  --muted: 240 4.8% 95.9%;
+  --muted-foreground: 240 3.8% 46.1%;
+  --accent: 240 4.8% 95.9%;
+  --accent-foreground: 240 5.9% 10%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 240 5.9% 90%;
+  --input: 240 5.9% 90%;
+  --ring: 240 10% 3.9%;
+  --chart-1: 0 100% 50%;
+  --chart-2: 30 100% 50%;
+  --chart-3: 60 100% 50%;
+  --chart-4: 90 100% 50%;
+  --chart-5: 120 100% 50%;
+  --primary: #e7c9a5;
+  --primary-admin: #25388c;
+  --green: #027a48;
+  --green-100: #ecfdf3;
+  --green-400: #4c7b62;
+  --green-500: #2cc171;
+  --green-800: #027a48;
+  --red: #ef3a4b;
+  --red-400: #f46f70;
+  --red-500: #e27233;
+  --red-800: #ef3a4b;
+  --blue-100: #0089f1;
+  --light-100: #d6e0ff;
+  --light-200: #eed1ac;
+  --light-300: #f8f8ff;
+  --light-400: #edf1f1;
+  --light-500: #8d8d8d;
+  --light-600: #f9fafb;
+  --light-700: #e2e8f0;
+  --light-800: #f8fafc;
+  --dark-100: #16191e;
+  --dark-200: #3a354e;
+  --dark-300: #232839;
+  --dark-400: #1e293b;
+  --dark-500: #0f172a;
+  --dark-600: #333c5c;
+  --dark-700: #464f6f;
+  --dark-800: #1e2230;
+  --gray-100: #cbd5e1;
+
+  /* Radius */
+  --radius: 0.5rem;
+}
+
+@layer base {
+  :root {
+    /* Screen sizes */
+    --screens-xs: 480px;
+    --screens-sm: 640px;
+    --screens-md: 768px;
+    --screens-lg: 1024px;
+    --screens-xl: 1280px;
+    --screens-2xl: 1536px;
+
+    /* Radius */
+    --radius: 0.5rem;
+  }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+    border-radius: 0px;
+  }
+
+  .hide-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .hide-scrollbar::-webkit-scrollbar-thumb {
+    background: transparent;
+    border-radius: 0px;
+  }
+
+  .hide-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: transparent;
+  }
+}
+
+
+
+
+@theme inline {
+  /* Screens */
+  --screen-xs: var(--screens-xs);
+  --screen-sm: var(--screens-sm);
+  --screen-md: var(--screens-md);
+  --screen-lg: var(--screens-lg);
+  --screen-xl: var(--screens-xl);
+  --screen-2xl: var(--screens-2xl);
+
+  /* Radius */
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  /* Colors */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-light-300: var(--light-300);
+}
+
+/*!*!* Dark mode overrides *!*!*/
+/*!*.dark {*!*/
+/*!*    --background: 240 10% 3.9%;*!*/
+/*!*    --foreground: 0 0% 100%;*!*/
+/*!*}*!
+
+/*!* Base styles (auto-layered in v4.1+, optional override) *!*/
+/*!*body {*!*/
+/*!*    font-family: var(--font-ibm-plex-sans);*!*/
+/*!*    background-color: hsl(var(--background));*!*/
+/*!*    color: hsl(var(--foreground));*!*/
+/*!*}*!*/
+
+/*!*!* Custom Utility: Background Pattern *!*!*/
+@utility bg-pattern {
+  background-image: url("/images/pattern.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+
+/*!*!* Optional Responsive Screen Alias (480px breakpoint) *!*!*/
+/*!*@media (min-width: 480px) {*!*/
+/*!*    .text-xs-up {*!*/
+/*!*        font-size: 0.875rem;*!*/
+/*!*    }*!*/
+/*!*}*!*/
+
+/*!*!* Optional Button using token *!*!*/
+/*!*.btn {*!*/
+/*!*    background-color: var(--primary);*!*/
+/*!*    color: black;*!*/
+/*!*    padding: 0.5rem 1rem;*!*/
+/*!*    border-radius: var(--radius);*!*/
+/*!*}*!*/
+/*!* ✅ Custom Design Tokens *!*/
+/*@layer base {*/
+
+
+/*    !* 🧼 Hide scrollbar *!*/
+/*    .hide-scrollbar::-webkit-scrollbar {*/
+/*        width: 0px;*/
+/*        height: 0px;*/
+/*        border-radius: 0px;*/
+/*    }*/
+
+/*    .hide-scrollbar::-webkit-scrollbar-track {*/
+/*        background: transparent;*/
+/*    }*/
+
+/*    .hide-scrollbar::-webkit-scrollbar-thumb {*/
+/*        background: transparent;*/
+/*        border-radius: 0px;*/
+/*    }*/
+
+/*    .hide-scrollbar::-webkit-scrollbar-thumb:hover {*/
+/*        background: transparent;*/
+/*    }*/
+/*}*/
+
+/*!* ✅ Component Layer *!*/
+@layer components {
+  .form-btn {
+    @apply inline-flex items-center justify-center w-full px-6 py-2 text-base font-bold rounded-md min-h-14;
+    background-color: var(--primary) !important;
+    color: var(--dark-100) !important;
+  }
+
+  .form-btn:hover {
+    background-color: var(--primary);
+    cursor: pointer;
+    /* You can replace with a lighter variant if you define it, e.g., var(--primary-hover) */
+  }
+
+  .form-input {
+    background-color: var(--dark-300) !important;
+    @apply w-full text-base font-bold text-white border-none min-h-14 focus-visible:ring-0 focus-visible:shadow-none;
+  }
+
+  form-input::placeholder {
+    color: var(--light-100);
+    font-weight: normal;
+  }
+
+  /* !* Book Card *!*/
+  .book-title {
+    @apply mt-2 text-base font-semibold text-white line-clamp-1 sm:text-xl;
+  }
+
+  .book-genre {
+    @apply mt-1 text-sm italic text-[--light-100] line-clamp-1 sm:text-base;
+  }
+
+  .book-loaned {
+    @apply flex flex-row items-center justify-center gap-1;
+  }
+
+  .book-btn {
+    @apply w-full mt-3 text-base min-h-14 bg-[--dark-600] text-[--primary] font-[--bebas-neue];
+  }
+
+  /*    !* Borrowed Book *!*/
+  .borrowed-book {
+    @apply relative w-full p-5 gradient-vertical rounded-2xl;
+  }
+
+
+
+
+  /*    .borrowed-book_cover {*/
+  /*        @apply flex items-center justify-center w-full px-10 py-4 rounded-lg lg:px-16;*/
+  /*    }*/
+
+  /*    !* Book Cover *!*/
+  /*    .book-cover_extra_small {*/
+  /*        @apply w-[28.95px] h-10;*/
+  /*    }*/
+
+  /*    .book-cover_small {*/
+  /*        @apply w-[55px] h-[76px];*/
+  /*    }*/
+
+  /*    .book-cover_medium {*/
+  /*        @apply w-[144px] h-[199px];*/
+  /*    }*/
+
+  /*    .book-cover_regular {*/
+  /*        @apply xs:w-[174px] w-[114px] xs:h-[239px] h-[169px];*/
+  /*    }*/
+
+  /*    .book-cover_wide {*/
+  /*        @apply xs:w-[296px] w-[256px] xs:h-[404px] h-[354px];*/
+  /*    }*/
+
+  /*    !* Book List *!*/
+  /*    .book-list {*/
+  /*        @apply flex flex-wrap gap-5 mt-10 max-xs:justify-between xs:gap-10;*/
+  /*    }*/
+
+  /*    !* Book Overview *!*/
+  /*    .book-overview {*/
+  /*        @apply flex flex-col-reverse items-center gap-12 sm:gap-32 xl:flex-row xl:gap-8;*/
+  /*    }*/
+
+  /*    .book-overview h1 {*/
+  /*        @apply text-5xl font-semibold text-white md:text-7xl;*/
+  /*    }*/
+
+  /*    .book-info {*/
+  /*        @apply flex flex-row flex-wrap gap-4 text-xl mt-7 text-light-100;*/
+  /*    }*/
+
+  /*    .book-copies {*/
+  /*        @apply flex flex-row flex-wrap gap-4 mt-1;*/
+  /*    }*/
+
+  /*    .book-copies p {*/
+  /*        @apply text-xl text-light-100;*/
+  /*    }*/
+
+  /*    .book-copies p span {*/
+  /*        @apply ml-2 font-semibold text-primary;*/
+  /*    }*/
+
+  /*    .book-description {*/
+  /*        @apply mt-2 text-xl text-justify text-light-100;*/
+  /*    }*/
+
+  /*    .book-overview_btn {*/
+  /*        background-color: var(--primary)!important;*/
+  /*        color: var(--dark-100)!important;*/
+  /*        @apply mt-4 min-h-14 w-fit max-md:w-full;*/
+  /*    }*/
+  /*    .book-overview_btn:hover {*/
+  /*        background-color: var(--primary)/90; !* You can replace with a lighter variant if you define it, e.g., var(--primary-hover) *!*/
+  /*    }*/
+
+  /*    !* File Upload *!*/
+      .upload-btn {
+          @apply flex min-h-14 w-full items-center justify-center gap-1.5 rounded-md;
+      }
+
+      .upload-filename {
+          @apply mt-1 text-xs text-center;
+      }
+
+      .progress {
+          @apply rounded-full bg-green-800 p-0.5 text-center font-bebas-neue text-[8px] font-bold leading-none text-light-100;
+      }
+
+      /* Search */
+      .search {
+          @apply relative flex items-center w-full px-4 mt-10 min-h-14 rounded-xl bg-dark-300;
+      }
+
+      .search-input {
+          @apply w-full font-bold text-white border-none focus-visible:ring-0 focus-visible:shadow-none;
+      }
+      .search-input::placeholder {
+          color: var(--light-100)!important;
+          font-weight: normal;
+      }
+
+      /* Book Receipt */
+      .book-receipt_admin-btn {
+          background-color: var(--primary)!important;
+          @apply font-semibold rounded-md bg-light-300  ;
+      }
+      .book-receipt_admin-btn:hover {
+          background-color: var(--light-300)/80; /* You can replace with a lighter variant if you define it, e.g., var(--primary-hover) */
+      }
+
+      /* Book Ticket */
+      #book-ticket {
+          @apply relative mt-10 hidden w-[544px] overflow-hidden bg-dark-300 py-8;
+      }
+
+      #book-ticket #book-details div {
+          @apply p-3 space-y-1 border rounded-md border-light-100/10;
+      }
+
+      #book-ticket #book-details div p:first-child {
+          @apply text-xs text-light-700;
+      }
+
+      #book-ticket #book-details div p:last-child {
+          @apply text-sm font-bold text-white;
+      }
+
+      #book-ticket #book-divider div:first-child {
+          @apply absolute -left-3.5 top-1/2 size-7 -translate-y-1/2 rounded-full bg-black;
+      }
+
+      #book-ticket #book-divider div:last-child {
+          @apply absolute -right-3.5 top-1/2 size-7 -translate-y-1/2 rounded-full bg-black;
+      }
+
+      .book-ticket-circles {
+          @apply absolute inset-x-0 -bottom-6 flex flex-row gap-1.5;
+      }
+
+      /* Not Found */
+      #not-found {
+          @apply flex flex-col items-center justify-center w-full text-center;
+      }
+
+      #not-found h4 {
+          @apply mt-6 text-2xl font-semibold text-white;
+      }
+
+      #not-found p {
+          @apply text-light-100 w-[360px] mt-1;
+      }
+
+      .not-found-btn {
+          background-color: var(--primary)!important;
+          color: var(--dark-100)!important;
+          @apply font-bebas-neue min-w-[360px] mt-6 text-xl hover:bg-primary/90 min-h-12 ;
+      }
+
+      /* Pagination */
+      #pagination {
+          @apply flex flex-row justify-end gap-3;
+      }
+
+      .pagination-btn_light {
+          background-color: var(--light-300)!important;
+          color: var(--dark-100)!important;
+          @apply bg-light-300 text-dark-300;
+      }
+      .pagination-btn_light:hover {
+          background-color: var(--light-300)/80; /* You can replace with a lighter variant if you define it, e.g., var(--primary-hover) */
+      }
+
+      .pagination-btn_dark {
+          @apply bg-dark-300;
+      }
+      .pagination-btn_dark:hover {
+          background-color: var(--dark-100) !important; /* You can replace with a lighter variant if you define it, e.g., var(--primary-hover) */
+      }
+
+      #pagination p {
+          @apply text-sm inline-flex items-center font-semibold px-4 py-1.5 rounded-md text-center;
+      }
+
+      /* Sort */
+      .select-trigger {
+          background-color: var(--dark-300) !important;
+          color: var(--light-100) !important;
+          border: 1px solid var(--dark-100) !important;
+          @apply w-40 h-10 px-4;
+      }
+
+      .select-content {
+          border: 1px solid var(--dark-100) !important;
+          background-color: var(--dark-300) !important;
+          color: var(--light-100) !important;
+          @apply !bg-dark-300 !text-light-100 !border-dark-100;
+      }
+
+      .select-item {
+          @apply focus:bg-dark-600 focus:text-light-100 ;
+      }
+}
+
+@utility gradient-vertical {
+  background: linear-gradient(180deg, #12141d 0%, #12151f 100%);
+}
+
+@utility gradient-gray {
+  background: linear-gradient(270deg, #37363a 0%, #353637 100%);
+}
+
+@utility gradient-blue {
+  background: linear-gradient(180deg, #232839 0%, #12141d 100%);
+}
+
+@layer utilities {
+  .bg-pattern {
+    background-image: url("/images/pattern.webp");
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  .gradient-vertical {
+    @apply bg-gradient-to-b from-[#12141d] to-[#12151f];
+  }
+  }
+
+
+
+
+
+/*    !* Auth *!*/
+@utility auth-container {
+  color: var(--light-100);
+  @apply relative flex flex-col-reverse sm:flex-row;
+}
+
+@utility auth-form {
+  background-color: var(--dark-100);
+  @apply flex items-center flex-1 h-full min-h-screen px-5 py-10 my-auto bg-top bg-cover;
+}
+
+@utility auth-box {
+  background: linear-gradient(180deg, #12141d 0%, #12151f 100%);
+  @apply flex flex-col max-w-xl gap-6 p-10 mx-auto rounded-lg;
+}
+
+@utility auth-illustration {
+  @apply sticky top-0 w-full h-40 sm:h-screen sm:flex-1;
+}
+
+/* Root */
+@utility root-container {
+  background-color: var(--dark-100);
+  @apply flex flex-col flex-1 min-h-screen px-5 bg-top bg-cover bg-pattern sm:px-10 md:px-16;
+}
+
+/* Book Details */
+@utility book-details {
+  @apply flex flex-col gap-16 mt-16 mb-20 lg:mt-36 lg:flex-row;
+}
+
+/*@utility book-details h3 {*/
+/*        @apply text-xl font-semibold text-primary;*/
+/*    }*/
+
+/* Library */
+@utility library {
+  @apply flex flex-col w-full max-w-xl mx-auto text-center;
+}
+
+@utility library-subtitle {
+  color: var(--light-100);
+  @apply text-lg font-semibold uppercase ;
+}
+
+@utility library-title {
+  @apply mt-2 text-3xl font-semibold text-white sm:text-5xl;
+}
