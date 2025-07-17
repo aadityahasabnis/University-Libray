@@ -11,23 +11,23 @@ const Layout = async ({ children }: { children: ReactNode }) => {
   const session = await auth();
   if (!session) redirect("/sign-in");
 
-  after(async ()=> {
-      if(!session) return;
+    after(async () => {
+        if (!session?.user?.id) return;
 
-      // Get the user and see if the last activity is today
-      const user = await db
-          .select()
-          .from(users)
-          .where(eq(users.id, session?.user?.id))
-          .limit(1)
+        const user = await db
+            .select()
+            .from(users)
+            .where(eq(users.id, session?.user?.id))
+            .limit(1);
 
-      if(user[0].lastActivityDate === new Date().toISOString().slice(0,10)) return;
+        if (user[0].lastActivityDate === new Date().toISOString().slice(0, 10))
+            return;
 
-      await db
-          .update(users)
-          .set({lastActivityDate: new Date().toISOString().slice(0,10)})
-          .where(eq(users.id, session?.user?.id))
-  })
+        await db
+            .update(users)
+            .set({ lastActivityDate: new Date().toISOString().slice(0, 10) })
+            .where(eq(users.id, session?.user?.id));
+    });
   return (
     <main className="root-container">
       <Header session={session} />
