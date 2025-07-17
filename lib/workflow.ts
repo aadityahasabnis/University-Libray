@@ -7,9 +7,19 @@ export const workflowClient = new WorkflowClient({
   token: config.env.upstash.qstashToken,
 });
 
-const qstashClient = new QStashClient({ token: config.env.upstash.qstashToken });
+const qstashClient = new QStashClient({
+  token: config.env.upstash.qstashToken,
+});
 
-export const sendEmail = async ({email, subject, message}: {email: string, subject: string, message: string}) => {
+export const sendEmail = async ({
+                                  email,
+                                  subject,
+                                  message,
+                                }: {
+  email: string;
+  subject: string;
+  message: string;
+}) => {
   await qstashClient.publishJSON({
     api: {
       name: "email",
@@ -22,4 +32,4 @@ export const sendEmail = async ({email, subject, message}: {email: string, subje
       html: message,
     },
   });
-}
+};
