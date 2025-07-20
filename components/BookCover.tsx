@@ -4,6 +4,8 @@ import React from "react";
 import { cn } from "@/lib/utils";
 import BookCoverSvg from "@/components/BookCoverSvg";
 import Image from "next/image";
+import {IKImage} from "imagekitio-next";
+import config from "@/lib/config";
 // import { IKImage } from "imagekitio-next";
 // import config from "@/lib/config";
 
@@ -44,10 +46,13 @@ const BookCover = ({
         className="absolute z-10"
         style={{ left: "12%", width: "87.5%", height: "88%" }}
       >
-        <Image
-          src={coverImage}
+        <IKImage
+          path={coverImage}
+          urlEndpoint={config.env.imagekit.urlEndpoint}
           alt="Book cover"
           fill
+          loading={'lazy'}
+          lqip={{active: true}}
           className="object-fill rounded-sm"
           sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, (max-width: 1280px) 25vw, (max-width: 1536px) 20vw, (min-width: 1536px) 15vw"
         />

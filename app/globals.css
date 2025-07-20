@@ -9,6 +9,7 @@
 
   --color-primary-100: #dddfff;
   --color-primary-200: #cac5fe;
+  --color-primary-admin: #25388c;
 
   --color-light-100: #d6e0ff;
   --color-light-400: #6870a6;
@@ -353,22 +354,22 @@
     font-weight: normal;
   }
 
-  /* !* Book Card *!*/
-  .book-title {
-    @apply mt-2 text-base font-semibold text-white line-clamp-1 sm:text-xl;
-  }
+  /*!* !* Book Card *!*!*/
+  /*.book-title {*/
+  /*  @apply mt-2 text-base font-semibold text-white line-clamp-1 sm:text-xl;*/
+  /*}*/
 
-  .book-genre {
-    @apply mt-1 text-sm italic text-[--light-100] line-clamp-1 sm:text-base;
-  }
+  /*.book-genre {*/
+  /*  @apply mt-1 text-sm italic text-[--light-100] line-clamp-1 sm:text-base;*/
+  /*}*/
 
-  .book-loaned {
-    @apply flex flex-row items-center justify-center gap-1;
-  }
+  /*.book-loaned {*/
+  /*  @apply flex flex-row items-center justify-center gap-1;*/
+  /*}*/
 
-  .book-btn {
-    @apply w-full mt-3 text-base min-h-14 bg-[--dark-600] text-[--primary] font-[--bebas-neue];
-  }
+  /*.book-btn {*/
+  /*  @apply w-full mt-3 text-base min-h-14 bg-[--dark-600] text-[--primary] font-[--bebas-neue];*/
+  /*}*/
 
   /*    !* Borrowed Book *!*/
   .borrowed-book {
@@ -599,6 +600,24 @@
   }
 
 
+/* BOOK LIST */
+@utility book-title {
+    @apply mt-2 text-base font-semibold text-white line-clamp-1 sm:text-xl;
+}
+
+@utility book-genre {
+    @apply mt-1 text-sm italic text-[--light-100] line-clamp-1 sm:text-base;
+}
+
+@utility book-loaned {
+    @apply flex flex-row items-center justify-center gap-1;
+}
+
+@utility book-btn {
+    @apply w-full mt-3 text-base min-h-14 bg-[--dark-600] text-[--primary] font-[--bebas-neue];
+}
+
+
 
 
 
@@ -650,3 +669,5 @@
 @utility library-title {
   @apply mt-2 text-3xl font-semibold text-white sm:text-5xl;
 }
+
+
